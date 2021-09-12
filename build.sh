@@ -84,6 +84,7 @@ fi
 "$SCRIPT/make-bootimage.sh" "${TMPDOWN}/KERNEL_OBJ" "${TMPDOWN}/halium-boot-ramdisk.img" "${TMP}/partitions/boot.img"
 
 cp -av overlay/* "${TMP}/"
+[ -d "overlay-${deviceinfo_codename}" ] && cp -av "overlay-${deviceinfo_codename}"/* "${TMP}/"
 "$SCRIPT/build-tarball-mainline.sh" "${deviceinfo_codename}" "${OUT}" "${TMP}"
 
 if [ -z "$BUILD_DIR" ]; then
